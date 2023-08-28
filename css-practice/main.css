@@ -1,0 +1,17 @@
+body {
+    width: 800px;
+    height: 800px;
+}
+
+.test {
+    background-color: red;
+    width: 200px;
+    height: 200px;
+    /* border: 1px solid black; */
+    transition: all .2s ease-in-out;
+}
+
+.test:hover {
+    transform: scale(1.1);
+    box-shadow: 1px 1px 10px rgb(66, 66, 66);
+}
