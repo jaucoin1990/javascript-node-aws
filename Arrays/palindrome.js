@@ -3,7 +3,7 @@ let num = 12345654321;
 
 let palindromeNum = function (num) {
     //convert num to array
-    let spreadNum = [...`${num}`];
+    let spreadNum = [...String(num)];
     //determine half array
     let halfLen = Math.floor(spreadNum.length/2);
     //slice array in half
