@@ -2,8 +2,8 @@
 //squared value in arr2
 //every value must be accounted for, and the freq must be the same
 
-const arr1 = [1,2,3,4];
-const arr2 = [1,4,9,16];
+const arr1 = [1,2,3,2];
+const arr2 = [1,4,9];
 
 const same = (arr1, arr2) => {
     //create object with squared value/false from arr1
@@ -17,7 +17,13 @@ const same = (arr1, arr2) => {
 
     for (let i of arr1) {
         const sq = Math.pow(i, 2);
-        arrToObj[sq] = true;
+
+        if (arrToObj[sq] === undefined){
+            arrToObj[sq] = 1;
+        } else {
+            arrToObj[sq] = arrToObj[sq] + 1;
+        }
+        
     }
     //search for those values from arr2 in the obj
     for (let j of arr2) {
@@ -25,12 +31,15 @@ const same = (arr1, arr2) => {
             answer = false;
         }
         else if (arrToObj[j]) {
-            arrToObj[j] = false;
+            arrToObj[j]--;
         }
     }
-    for (let k = 0; k < arr1.length; k++) {
-        if(arrToObj[k]) {
+    for (let k in arrToObj) {
+        // console.log(arrToObj[k])
+        // console.log(arrToObj[k] > 0)
+        if(arrToObj[k] > 0) {
             answer = false;
+            return answer;
         }
         else {
             answer = true;
