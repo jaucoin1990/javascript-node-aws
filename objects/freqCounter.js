@@ -15,13 +15,15 @@ const areThereDuplicates = function () {
     let obj = {};
 
     for (let i of arguments) {
-        if (!obj[i]) {
-            obj[i] = 1;
-        } else if (obj[i]) {
-            return true;
+        if (typeof i === 'number' || typeof i === 'string') {
+            if (!obj[i]) {
+                obj[i] = 1;
+            } else if (obj[i]) {
+                return true;
+            }
         }
     }
     return false;
 }
 
-console.log(areThereDuplicates(1,8,3,4, 7, 5, 1));
+console.log(areThereDuplicates(1,8,3,4, 7, 5, 100, 'a', 88, 'a'));
