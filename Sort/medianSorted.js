@@ -1,4 +1,4 @@
-const arr1 = [1, 3, 6, 9];
+const arr1 = [1, 3, 9];
 const arr2 = [2, 5, 7, 8];
 
 const medianOfMergedArrays = function (arr1, arr2) {
@@ -27,14 +27,15 @@ const medianOfMergedArrays = function (arr1, arr2) {
             arr2Pointer++;
         };
     }
+    console.log(mergedArray)
     if (mergedArray.length % 2 === 0) {
         let midPlusOne = Math.floor(mergedArray.length / 2);
         let midMinusOne = midPlusOne - 1;
         return (mergedArray[midPlusOne] + mergedArray[midMinusOne]) / 2;
     } else {
-        let mid = mergedArray.length / 2;
+        let mid = Math.floor(mergedArray.length / 2);
         return mergedArray[mid];
-    }
+    } 
 }
 
 console.log(medianOfMergedArrays(arr1, arr2))
