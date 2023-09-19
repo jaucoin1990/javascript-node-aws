@@ -3,13 +3,10 @@
 
 const arr = [5, 3, 6, 7, 3, 4, 9, 10, 11];
 
+const pivotHelper = function (arr, start = 0, end = arr.length - 1) {
+    let pivotCounter = start;
 
-const pivotHelper = function (arr, start, end) {
-    start = 0;
-    end = arr.length - 1;
-    let pivotCounter = 0;
-
-    for(let i = start + 1; i < end; i++) {
+    for (let i = start + 1; i <= end; i++) {
         if (arr[i] < arr[start]) {
             pivotCounter += 1;
             let temp = arr[i];
@@ -25,5 +22,13 @@ const pivotHelper = function (arr, start, end) {
     return pivotCounter;
 }
 
-console.log(pivotHelper(arr));
-console.log(arr)
+const quickSort = function (arr, start = 0, finish = arr.length - 1) {
+    if (start < finish) {
+        const pivotCounter = pivotHelper(arr, start, finish);
+        quickSort(arr, start, pivotCounter - 1);
+        quickSort(arr, pivotCounter + 1, finish);
+    }
+}
+
+quickSort(arr);
+console.log(arr); // Sorted array
