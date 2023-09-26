@@ -65,6 +65,17 @@ class DoublyLinkedList {
         }
 
     }
+    insert (index, value) {
+        let node = new Node(value);
+        let current = this.head;
+
+        for (let i = 0; i < this.length; i++) {
+            if(i === index) {
+                let remainder = current;
+                current = 
+            }
+        }
+    }
         
 }
 
