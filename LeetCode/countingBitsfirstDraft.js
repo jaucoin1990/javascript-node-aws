@@ -24,35 +24,30 @@ const num = 5;
 
 const countingBits = function (num) {
     let arr = [];
-    let index = 0;
-    let countToIndex = 0;
 
-    if (num === 0) {
-        return arr;
-    }
-
-    while (index !== num) {
-        let oneCount = 0;
-
-        if(countToIndex === index) {
-            countToIndex = 0;
-            index += 1;
-            arr.push(oneCount);
-            oneCount = 0;
+    for(let i = 0; i <= num; i++) {
+        if(i === 0) {
+            arr.push(0)
+            continue;
+        } else if (i === 1) {
+            arr.push(1)
             continue;
         }
 
-        if (countToIndex & 1) {
-            oneCount += 1;
+        let bitAmount = i;
+        let count = 0;
+        while (bitAmount !== 0) {
+
+            if (bitAmount & 1) {
+                count += 1;
+            }
+
+            bitAmount = bitAmount >>> 1;
+
         }
-
-        countToIndex = countToIndex >>> 1;
-
-
-
+        arr.push(count);
     }
     return arr;
-
 }
 
-console.log(countingBits(num));
+console.log(countingBits(num))
